@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data - Smart Gate System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo-box">
+        <img src="logo.jpg" alt="Logo" class="nav-logo">
+        <div class="nav-title">
+          <h2>Smart Gate System</h2>
+          <p>Admin Panel</p>
+        </div>
+      </div>
+    </div>
+    <button id="logoutBtn" class="btn-logout">Logout</button>
+  </nav>
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="camera.html">Camera</a>
+    <a href="visitor.html">Visitor</a>
+    <a href="data.html" class="active">Data</a>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="content">
+    <h2 class="page-title">Rekap Data Gate</h2>
+
+    <!-- ===== STATISTICS CARDS ===== -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Data</h3>
+        <p id="totalData">0</p>
+      </div>
+      <div class="card approved">
+        <h3>Approved</h3>
+        <p id="dataApproved">0</p>
+      </div>
+      <div class="card warning">
+        <h3>Warning</h3>
+        <p id="dataWarning">0</p>
+      </div>
+    </div>
+
+    <!-- ===== TABLE DATA ===== -->
+    <section class="table-section">
+      <h3>Tabel Rekap Data</h3>
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Photo</th>
+              <th>Gate</th>
+              <th>Date & Time</th>
+              <th>License Plate</th>
+              <th>Face ID</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="dataTable">
+            <!-- Data akan dimuat oleh JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
