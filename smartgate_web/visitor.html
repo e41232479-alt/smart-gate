@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor - Smart Gate System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo-box">
+        <img src="logo.jpg" alt="Logo" class="nav-logo">
+        <div class="nav-title">
+          <h2>Smart Gate System</h2>
+          <p>Admin Panel</p>
+        </div>
+      </div>
+    </div>
+    <button id="logoutBtn" class="btn-logout">Logout</button>
+  </nav>
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="camera.html">Camera</a>
+    <a href="visitor.html" class="active">Visitor</a>
+    <a href="data.html">Data</a>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="content">
+    <h2 class="page-title">Visitor</h2>
+
+    <!-- ===== TABLE VISITOR ===== -->
+    <section class="table-section">
+      <h3>Daftar Visitor</h3>
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Photo</th>
+              <th>Gate</th>
+              <th>Date & Time</th>
+              <th>License Plate</th>
+            </tr>
+          </thead>
+          <tbody id="visitorTable">
+            <!-- Data visitor akan dimuat lewat JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

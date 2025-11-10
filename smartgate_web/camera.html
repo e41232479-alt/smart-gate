@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Camera Stream - Smart Gate System</title>
+  <style>
+    /* Reset margin & padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      background-color: #0d0d0d;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Header fixed top center */
+    header {
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+      color: #e5e5e5;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    header img {
+      width: 60px;
+      filter: brightness(2);
+      user-select: none;
+    }
+
+    /* Fullscreen camera feed */
+    #cameraFeed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; /* agar proporsional dan memenuhi layar */
+      z-index: 1;
+      user-select: none;
+    }
+
+    /* Tombol close di bawah tengah */
+    #closeButton {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    #closeButton:hover {
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Kamera controls overlay (optional) */
+    .camera-controls {
+      position: fixed;
+      bottom: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px 12px;
+      border-radius: 10px;
+    }
+
+    .camera-controls input {
+      width: 300px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .camera-controls button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      background-color: #3b82f6;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .camera-controls button:hover {
+      background-color: #2563eb;
+    }
+
+    /* Responsive */
+    @media (max-width: 400px) {
+      .camera-controls input {
+        width: 180px;
+        font-size: 14px;
+      }
+      #closeButton {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 28px;
+        bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpg" alt="Smart Gate Logo" />
+    Smart Gate Live Camera
+  </header>
+
+  <img
+    id="cameraFeed"
+    src="https://placehold.co/1920x1080?text=Live+Camera+Stream"
+    alt="Live Camera Stream"
+  />
+
+  <div class="camera-controls">
+    <input
+      type="text"
+      id="cameraUrl"
+      placeholder="Masukkan URL kamera (contoh: http://192.168.4.100:81/stream)"
+    />
+    <button id="connectCamera">Connect</button>
+  </div>
+
+  <button id="closeButton" title="Kembali ke dashboard">×</button>
+
+  <script>
+    document.getElementById('closeButton').addEventListener('click', () => {
+      window.location.href = 'dashboard.html'; // ganti sesuai file dashboard kamu
+    });
+
+    document.getElementById('connectCamera').addEventListener('click', () => {
+      const url = document.getElementById('cameraUrl').value.trim();
+      if (url) {
+        document.getElementById('cameraFeed').src = url;
+      } else {
+        alert('Masukkan URL kamera terlebih dahulu');
+      }
+    });
+  </script>
+</body>
+</html>
